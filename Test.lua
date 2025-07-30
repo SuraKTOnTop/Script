@@ -1,5 +1,5 @@
 -- Load WindUI
-local WindUI = loadstring(game:HttpGet("https://github.com/SuraKTOnTop/UI/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 -- Hàm gradient chữ (dự phòng nếu muốn dùng sau)
 local function gradient(text, startColor, endColor)

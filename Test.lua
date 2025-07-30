@@ -1,7 +1,7 @@
 -- Load WindUI
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
--- Hàm gradient chữ (dự phòng nếu muốn dùng sau)
+-- Hàm gradient chữ
 local function gradient(text, startColor, endColor)
     local result, length = "", #text
     for i = 1, length do
@@ -13,26 +13,27 @@ local function gradient(text, startColor, endColor)
     end
     return result
 end
-
--- Tạo cửa sổ chính
 local Window = WindUI:CreateWindow({
-    Title = "Tổng Hợp Script",
+    Title = "WindUI Library",
     Icon = "door-closed",
-    Author = "by SuraKT",
+    Author = "Sura",
     Folder = "CloudHub",
     Size = UDim2.fromOffset(580, 460),
     Transparent = true,
     Theme = "Dark",
     User = {
-        Enabled = false,
+        Enabled = true,
         Callback = function() print("clicked") end,
-        Anonymous = false
+        Anonymous = true
     },
     SideBarWidth = 200,
     HasOutline = true,
+    KeySystem = {
+        Key = { "1234", "5678" },
+        SaveKey = true
+    },
 })
 
--- Nút mở UI
 Window:EditOpenButton({
     Title = "Open Example UI",
     Icon = "monitor",
@@ -41,17 +42,85 @@ Window:EditOpenButton({
     Color = ColorSequence.new(Color3.fromHex("FF0F7B"), Color3.fromHex("F89B29")),
     Draggable = true,
 })
-
--- Tabs
 local Tabs = {
-    Script = Window:Tab({ Title = "Script", ShowTabTitle = true, Icon = "code" }),
+    Script = Window:Tab({ Title = "Script", ShowTabTitle = true }),
     be = Window:Divider(),
-    WindowTab = Window:Tab({ Title = "Cài Đặt", ShowTabTitle = true, Icon = "settings" }),
-}
+    WindowTab = Window:Tab({ Title = "Cài Đặt", ShowTabTitle = true }),}
+Tabs.Script:Button({
+    Title = "Redz Hub",
+    Callback = function()
+        WindUI:Notify({
+            Title = "Vui Lòng Chờ...",
+            Content = "...",
+            Icon = "loader",
+            Duration = 1,
+        })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+        WindUI:Notify({
+            Title = "Đã Chạy Thành Công.",
+            Content = "Chúc bạn chơi Game vui vẻ.",
+            Icon = "tick",
+            Duration = 2,
+        })
+    end
+})
+Tabs.Script:Button({
+    Title = "W-Azure",
+    Callback = function()
+        WindUI:Notify({
+            Title = "Vui Lòng Chờ...",
+            Content = "...",
+            Icon = "loader",
+            Duration = 1,
+        })
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+        WindUI:Notify({
+            Title = "Đã Chạy Thành Công.",
+            Content = "Chúc bạn chơi Game vui vẻ.",
+            Icon = "tick",
+            Duration = 2,
+        })
+    end
+})
+Tabs.Script:Button({
+    Title = "SpeedHubX",
+    Callback = function()
+        WindUI:Notify({
+            Title = "Vui Lòng Chờ...",
+            Content = "...",
+            Icon = "loader",
+            Duration = 1,
+        })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
+        WindUI:Notify({
+            Title = "Đã Chạy Thành Công.",
+            Content = "Chúc bạn chơi Game vui vẻ.",
+            Icon = "tick",
+            Duration = 2,
+        })
+    end
+})
+Tabs.Script:Button({
+    Title = "HoHo Hub",
+    Callback = function()
+        WindUI:Notify({
+            Title = "Vui Lòng Chờ...",
+            Content = "...",
+            Icon = "loader",
+            Duration = 1,
+        })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+        WindUI:Notify({
+            Title = "Đã Chạy Thành Công.",
+            Content = "Chúc bạn chơi Game vui vẻ.",
+            Icon = "tick",
+            Duration = 2,
+        })
+    end
+})
 Tabs.WindowTab:Section({ Title = "Keybinds" })
-
 Tabs.WindowTab:Keybind({
-    Title = "Phím Mở UI",
+    Title = "Keybind",
     Desc = "Dành Cho Máy Tính",
     Value = "P",
     Callback = function(v)
@@ -59,14 +128,13 @@ Tabs.WindowTab:Keybind({
     end
 })
 Tabs.WindowTab:Section({ Title = "Theme" })
-
 local themeValues = {}
 for name, _ in pairs(WindUI:GetThemes()) do
     table.insert(themeValues, name)
 end
 
 local themeDropdown = Tabs.WindowTab:Dropdown({
-    Title = "Chọn Giao Diện",
+    Title = "Chọn Theme",
     Multi = false,
     AllowNone = false,
     Value = nil,
@@ -78,7 +146,7 @@ local themeDropdown = Tabs.WindowTab:Dropdown({
 themeDropdown:Select(WindUI:GetCurrentTheme())
 
 local ToggleTransparency = Tabs.WindowTab:Toggle({
-    Title = "Trong Suốt Giao Diện",
+    Title = "Trong Suốt Cửa Sổ",
     Callback = function(e)
         Window:ToggleTransparency(e)
     end,

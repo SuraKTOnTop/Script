@@ -7429,7 +7429,7 @@ Callback=function()end,
 Variant="Secondary",
 },
 {
-Title="Đóng cửa sổ",
+Title="Đóng",
 
 Callback=function()o:Close():Destroy()end,
 Variant="Primary",

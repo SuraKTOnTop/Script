@@ -7419,17 +7419,17 @@ o:CreateTopbarButton("Close","x",function()
 e(o.UIElements.Main,0.35,{Position=UDim2.new(0.5,0,0.5,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 o:Dialog{
 
-Title="Close Window",
-Content="Do you want to close this window? You will not be able to open it again.",
+Title="Đóng cửa sổ",
+Content="Bạn có muốn đóng cửa sổ này không? Bạn sẽ không thể mở lại được nữa.",
 Buttons={
 {
-Title="Cancel",
+Title="Hủy",
 
 Callback=function()end,
 Variant="Secondary",
 },
 {
-Title="Close Window",
+Title="Đóng cửa sổ",
 
 Callback=function()o:Close():Destroy()end,
 Variant="Primary",

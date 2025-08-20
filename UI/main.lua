@@ -8893,7 +8893,7 @@ Callback=function()end,
 Variant="Secondary",
 },
 {
-Title="Đóng",
+Title="   Đóng   ",
 
 Callback=function()an:Close():Destroy()end,
 Variant="Primary",
